@@ -35,6 +35,7 @@ function generatePassword() {
     let lettersOption = prompt("Include letters? yes/no");
     if (lettersOption.toLowerCase() === "yes") {
       alert("Your password will include letters.");
+      console.log("Letters?", lettersOption);
       options.push("letters");
     } else {
       alert("Your password will NOT include letters.")
@@ -44,6 +45,7 @@ function generatePassword() {
     let capsOption = prompt("Include letters? yes/no");
     if (capsOption.toLowerCase() === "yes") {
       alert("Your password will include CAPITAL letters.");
+      console.log("Caps?", capsOption);
       options.push("caps");
     } else {
       alert("Your password will NOT include CAPITAL letters.")
@@ -53,6 +55,7 @@ function generatePassword() {
     let numbersOption = prompt("Include numbers? yes/no");
     if (numbersOption.toLowerCase() === "yes") {
       alert("Your password will include numbers.");
+      console.log("numbers?", numbersOption);
       options.push("numbers");
     } else {
       alert("Your password will NOT include numbers.")
@@ -62,33 +65,46 @@ function generatePassword() {
     let specCharsOption = prompt("Include special characters? yes/no");
     if (specCharsOption.toLowerCase() === "yes") {
       alert("Your password will include special characters.");
-      options.push("special")
+      console.log("Special?", specCharsOption);
+      options.push("special");
     } else {
       alert("Your password will NOT include special characters.")
-    }
+    };
+  };
 
-    // If ALL yes THEN Generate Password
-    if (lettersOption === "yes" && numbersOption === "yes" && specCharsOption === "yes") {
+  // Iterate on each array to get a value
+  for (let i = 0; i < pwdlength; i++) {
+    // Get index value from options variable to match on further IFs
+    console.log("Options:", options);
+    let randomCharGen = options[Math.floor(Math.random() * options.length)];
+    console.log("Random Char:", randomCharGen);
+    
+    // 1. Takes a random letter from the array
+    if (randomCharGen === "letters") {
+      let char = letters[Math.floor(Math.random() * letters.length)];
+      gendPwd = gendPwd + char;
+    };
 
-      // Iterate the password length for each of the choosen options
-      for (i=0; i < pwdlength; i++) {
-        // Get a Random Value from each string
-        let randomLetter = Math.floor(Math.random() * letters.length);
-        let randomNumber = Math.floor(Math.random() * numbers.length);
-        let randomSpChar = Math.floor(Math.random() * specChars.length);
-        
-        console.log("Letter choosen:" , randomLetter);
-        console.log("Letter choosen:" , randomNumber);
-        console.log("Letter choosen:" , randomSpChar);
+    // 2. Takes a random CAPITAL letter from the array
+    if (randomCharGen === "caps") {
+      let char = caps[Math.floor(Math.random() * caps.length)];
+      gendPwd = gendPwd + char;
+    };
 
-        // Sends text to global variable to print on textbox
-        return letters[random];
+    // 3. Takes a random number from the array
+    if (randomCharGen === "numbers") {
+      let char = numbers[Math.floor(Math.random() * numbers.length)];
+      gendPwd = gendPwd + char;
+    };
 
-      };
-      
-    }
+    // 4. Takes a random special character from the array
+    if (randomCharGen === "special") {
+      let char = specChars[Math.floor(Math.random() * specChars.length)];
+      gendPwd = gendPwd + char;
+    };
+  };
+  
+  console.log("Generated Pwd", gendPwd);
+  return gendPwd;
 
-  } else {
-    alert("Please choose a number of characters between 8 and 128.");
-  }
-}
+};

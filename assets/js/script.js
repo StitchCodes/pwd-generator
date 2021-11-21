@@ -35,7 +35,6 @@ function generatePassword() {
     let lettersOption = prompt("Include letters? yes/no");
     if (lettersOption.toLowerCase() === "yes") {
       alert("Your password will include letters.");
-      console.log("Letters?", lettersOption);
       options.push("letters");
     } else {
       alert("Your password will NOT include letters.")
@@ -45,7 +44,6 @@ function generatePassword() {
     let capsOption = prompt("Include letters? yes/no");
     if (capsOption.toLowerCase() === "yes") {
       alert("Your password will include CAPITAL letters.");
-      console.log("Caps?", capsOption);
       options.push("caps");
     } else {
       alert("Your password will NOT include CAPITAL letters.")
@@ -55,7 +53,6 @@ function generatePassword() {
     let numbersOption = prompt("Include numbers? yes/no");
     if (numbersOption.toLowerCase() === "yes") {
       alert("Your password will include numbers.");
-      console.log("numbers?", numbersOption);
       options.push("numbers");
     } else {
       alert("Your password will NOT include numbers.")
@@ -65,7 +62,6 @@ function generatePassword() {
     let specCharsOption = prompt("Include special characters? yes/no");
     if (specCharsOption.toLowerCase() === "yes") {
       alert("Your password will include special characters.");
-      console.log("Special?", specCharsOption);
       options.push("special");
     } else {
       alert("Your password will NOT include special characters.")
@@ -75,9 +71,7 @@ function generatePassword() {
   // Iterate on each array to get a value
   for (let i = 0; i < pwdlength; i++) {
     // Get index value from options variable to match on further IFs
-    console.log("Options:", options);
     let randomCharGen = options[Math.floor(Math.random() * options.length)];
-    console.log("Random Char:", randomCharGen);
     
     // 1. Takes a random letter from the array
     if (randomCharGen === "letters") {
@@ -104,7 +98,7 @@ function generatePassword() {
     };
   };
   
-  console.log("Generated Pwd", gendPwd);
+  // Inputs generated password to text box
   return gendPwd;
 
 };

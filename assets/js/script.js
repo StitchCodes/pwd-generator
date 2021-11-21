@@ -28,7 +28,7 @@ function generatePassword() {
   let gendPwd = "";
 
   // If with loop to get required values
-  if (pwdlength >7 && pwdlength <129) {
+  if (pwdlength >7 && pwdlength <129 && pwdlength !== "") {
     alert("You choose " + pwdlength + " characters.");
     
     // Letters Option
@@ -66,6 +66,10 @@ function generatePassword() {
     } else {
       alert("Your password will NOT include special characters.")
     };
+  } else if (pwdlength === "" && pwdlength !== null) {
+    // Prompt empty
+    alert("Please choose a password length between 8 and 128 characters.");
+    generatePassword();
   };
 
   // Iterate on each array to get a value
@@ -97,7 +101,7 @@ function generatePassword() {
       gendPwd = gendPwd + char;
     };
   };
-  
+
   // Inputs generated password to text box
   return gendPwd;
 

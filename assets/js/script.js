@@ -72,7 +72,10 @@ function generatePassword() {
     generatePassword();
   };
 
+  // ************************************
   // Iterate on each array to get a value
+  // ************************************
+  
   for (let i = 0; i < pwdlength; i++) {
     // Get index value from options variable to match on further IFs
     let randomCharGen = options[Math.floor(Math.random() * options.length)];

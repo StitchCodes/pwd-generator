@@ -10,3 +10,6 @@ Can generate passwords with the following attributes:
 
 ## Screnshoot of the app
 ![Initial prompt to choose password length.](https://i.imgur.com/axP4A4c.png)
+
+## Link to the app
+https://stitchcodes.github.io/pwd-generator/
